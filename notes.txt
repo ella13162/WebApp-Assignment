@@ -1,0 +1,16 @@
+POST REQUEST: (UPDATE)
+
+app.post('/title/:id/buy', (req, res) =>{
+	try{
+		const stmt = db.prepare('UPDATE wadsongs SET quantity = quantity - 1 Where id =?');
+		const info = stmt.run(req.params.id);
+		if (info.changes == 1) {
+			res.json({success == 1){
+			console.log(`POST REQUEST: buy title of ID ${req.params.id}, ${info.changes} changes made.
+		} else {
+			res.status(404).json({ error:'No product with that ID'});
+		}
+	} catch (error) {
+		res.status(500).json({error: error.message});
+	}
+});

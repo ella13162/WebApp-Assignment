@@ -1,0 +1,44 @@
+###
+GET http://localhost:3000/localbusiness
+
+###
+GET http://localhost:3000/localbusiness/Southampton
+
+### add a new business with
+# json 
+
+###
+POST http://localhost:3000/localbusiness/add
+Content-Type: application/json
+
+{
+    "name" : "Wawel",
+    "type" : "Castle", 
+    "country" : "Poland", 
+    "region" : "Krakow", 
+    "lon" : 50.05, 
+    "lat" : 19.93,
+    "description" : "Castle built in 13th and 14th Centuries", 
+    "recommendations" : 0
+}
+
+### chek the new added business
+GET http://localhost:3000/localbusiness/Krakow
+
+# or searching by name
+###
+GET http://localhost:3000/localbusiness/Wawel
+
+## add recommendations
+
+# id number for new added business Wawel Castle in Krakow is 352
+###
+POST http://localhost:3000/localbusiness/recommend/352
+
+# delete duplicated new added business
+###
+DELETE http://localhost:3000/localbusiness/353
+
+# checking if the result search is only one:
+###
+GET http://localhost:3000/localbusiness/krakow
