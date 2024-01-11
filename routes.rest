@@ -1,12 +1,11 @@
+# search for all businesses
 ###
 GET http://localhost:3000/localbusiness
-
+# search for businesses located in Southampton
 ###
 GET http://localhost:3000/localbusiness/Southampton
 
-### add a new business with
-# json 
-
+# add a new business with json 
 ###
 POST http://localhost:3000/localbusiness/add
 Content-Type: application/json
@@ -22,16 +21,15 @@ Content-Type: application/json
     "recommendations" : 0
 }
 
-### chek the new added business
+# chek the new added business
+###
 GET http://localhost:3000/localbusiness/Krakow
 
 # or searching by name
 ###
 GET http://localhost:3000/localbusiness/Wawel
 
-## add recommendations
-
-# id number for new added business Wawel Castle in Krakow is 352
+# add recommendations where id number for new added business Wawel Castle in Krakow is 352
 ###
 POST http://localhost:3000/localbusiness/recommend/352
 
