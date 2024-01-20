@@ -1,8 +1,8 @@
+```js
 // import express and database from better - sqlite3
 const express = require('express');
 const Database = require('better-sqlite3');
 const app = express();
-const path = require('path');
 
 // set up body-parser
 const bodyParser = require('body-parser');
@@ -15,13 +15,9 @@ const DB = 'explorelocal.db' // path to sqlite db file
 const db = new Database(DB);
 console.log (`Connected to the ${DB} database`);
 
-// static files from public directory
-app.use(express.static('public'));
-
-
 //routess / end points
 
-// ----- PART 'A' START-------
+// ----- PART A START-------
 
 // lookup for all the local business
 app.get('/localbusiness', (req, res) =>{
@@ -111,13 +107,10 @@ app.delete('/localbusiness/:id', (req, res) => {
     }
 });
 
-// ----- PART 'A' END -------
+// ----- PART A END-------
 
-// ----- PART 'B' START -----
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'home.html'));
+app.get('/', (req, res) =>{
+    res.send('hello!')
 });
 
-// ----- PART 'B' END ------
-
-app.listen(PORT, () => console.log(`Server is running at http://localhost:${PORT}/`));
+app.listen(PORT, () => console.log(`Server is running at http://localhost:${PORT}/`));```
