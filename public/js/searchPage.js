@@ -1,4 +1,4 @@
-//Initializing the map
+// initializing the map
 var map = L.map('map').setView([51.505, -0.09], 13);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -6,7 +6,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 let markers = [];
 
-//It clears all the previous markers and result list
+// it clears all the previous markers and result list
 const clearPreviousResult = (searchResultSpace,markers) => {
     searchResultSpace.innerHTML='';
     markers.map((marker)=>{
@@ -14,7 +14,7 @@ const clearPreviousResult = (searchResultSpace,markers) => {
     })
 }
 
-//adding marker on map with review form
+// adding marker on map with review form
 const addMarkerOnMap = (business,markers) => {
     let marker = L.marker([business.lat,business.lon]).addTo(map).bindPopup(`
         <h3>${business.name}</h3>
@@ -26,7 +26,7 @@ const addMarkerOnMap = (business,markers) => {
     `);
 
     /*
-        Storing markers in array to delete/remove them later using clearPreviousResult() function
+        storing markers in array to delete/remove them later using clearPreviousResult() function
     */
     markers.push(marker);
 }
@@ -52,10 +52,10 @@ document.getElementById('search-button').addEventListener('click',async(event)=>
         searchResultSpace.appendChild(document.createElement('h2')).innerHTML = `Business nearby ${regionName} :`;
         searchResultSpace.appendChild(document.createElement('ul')).innerHTML = businesses.map((business)=>{
             
-            //Showing marker on a specific map position
+            // showing marker on a specific map position
             addMarkerOnMap(business,markers);
             
-            //Showing search result as an unordered list
+            // showing search result as an unordered list
             return `
                 <li> 
                     <h3>${business.name} </h3>
@@ -65,7 +65,7 @@ document.getElementById('search-button').addEventListener('click',async(event)=>
             `;
         }).join('');
 
-        //Recommend button with AJAX handling recommendation
+        // recommend button with AJAX handling recommendation
         let buttons = document.querySelectorAll('.recommend-button');
         buttons.forEach((button)=>{
             button.addEventListener('click',async(event)=>{
@@ -86,7 +86,7 @@ document.getElementById('search-button').addEventListener('click',async(event)=>
 });
 
 /*
-    Popup form to add a business when clicked on map
+    popup form to add a business when clicked on map
 */
 map.on('click',(event)=>{
     let popup = L.popup();
@@ -107,7 +107,7 @@ map.on('click',(event)=>{
     `).openOn(map);
 
     /*
-        Adding new business when add business button clicked on map Popup
+        adding new business when add business button clicked on map Popup
     */
     document.getElementById('add-business-button').addEventListener('click', async (event)=>{
         event.preventDefault();
@@ -129,7 +129,7 @@ map.on('click',(event)=>{
         const result = await response.json();
         if(response.status === 201){
             /*
-                Adding a marker only when a success response returned
+                adding a marker only when a success response returned
             */
             map.closePopup();
             addMarkerOnMap({name, type, country, region, lon, lat, description, recommendations},markers);
