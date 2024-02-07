@@ -1,59 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Add Local Business</title>
-    <script src="addBusiness.js"></script>
-</head>
-<body>
-
-
-<!-- top-area Start -->
-<section class="top-area">
-    <div class="header-area">
-        <!-- Start Navigation -->
-        <nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy"  data-minus-value-desktop="70" data-minus-value-mobile="55" data-speed="1000">
-
-            <div class="container">
-
-                <!-- Start Header Navigation -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-                        <i class="fa fa-bars"></i>
-                    </button>
-                    <a class="navbar-brand" href="index.html">list<span>race</span></a>
-
-                </div><!--/.navbar-header-->
-                <!-- End Header Navigation -->
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
-                    <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-                        <li class="active"><a href="home.html">home</a></li>
-                        <li><a href="searchBusiness.html">Search by Region</a></li>
-                        <li><a href="addBusiness.html">Add new business</a></li>
-                    </ul><!--/.nav -->
-                </div><!-- /.navbar-collapse -->
-            </div><!--/.container-->
-        </nav><!--/nav-->
-        <!-- End Navigation -->
-    </div><!--/.header-area-->
-    <div class="clearfix"></div>
-
-</section><!-- /.top-area-->
-<!-- top-area End -->
-    <h1>Add a New Local Business</h1>
-    
-    <input type="text" id="name" placeholder="Business Name">
-    <input type="text" id="type" placeholder="Business Type">
-    <input type="text" id="country" placeholder="Country">
-    <input type="text" id="region" placeholder="Region">
-    <input type="text" id="lon" placeholder="Longitude">
-    <input type="text" id="lat" placeholder="Lattitude">
-    <input type="text" id="description" placeholder="Description">
-    
-    <button onclick="addBusiness()">Add Business</button>
-
-    <a href="search.html">Search Businesses</a> 
-</body>
+<html>
+    <head>
+        <title> Add Business :: ExploreLocal</title>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul id="page-navigation"></ul>
+            </nav>
+            <section>
+                <div id="login-form"></div>
+            </section>
+        </header>
+        <main>
+            <section>
+                <h2>Add Business</h2>
+                <form>
+                    <input type="text" id="business-name" placeholder="Business Name"/> <br>
+                    <input type="text" id="business-type" placeholder="Type"/> <br>
+                    <input type="text" id="business-country" placeholder="Country"/> <br>
+                    <input type="text" id="business-region" placeholder="Region"/> <br>
+                    <input type="number" id="business-position-lon" placeholder="Longitude" step="0.0000001"/> <br>
+                    <input type="number" id="business-position-lat" placeholder="Latitude" step="0.0000001"/> <br>
+                    <input type="text" id="business-description" placeholder="Description"/> <br>
+                    <button type="submit" id="add-business-button">Add</button>
+                </form>
+            </section>
+        </main>
+        <script type="module" src="./js/navBar.js"></script>
+        <script type="module" src="./js/addPage.js"></script>
+    </body>
 </html>

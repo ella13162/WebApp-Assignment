@@ -12,7 +12,47 @@
 <section class="top-area">
     <div class="header-area">
         <!-- Start Navigation -->
-        <nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy"  data-minus-value-desktop="70" data-minus-value-mobile="55" data-speed="1000">
+        <nav class="navbar n<!DOCTYPE html>
+            <html>
+                <head>
+                    <title> Search :: ExploreLocal</title>
+                    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+                    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+                    crossorigin=""/>
+                    <style>
+                        #map { height: 450px; }
+                    </style>
+                </head>
+                <body>
+                    <header>
+                        <nav>
+                            <ul id="page-navigation"></ul>
+                        </nav>
+                        <section>
+                            <div id="login-form"></div>
+                        </section>
+                    </header>
+                    <main>
+                        <section>
+                            <h2>Search</h2>
+                            <form>
+                                <input type="search" id="search-field"/>
+                                <button type="submit" id="search-button">Search</button>
+                            </form>
+                        </section>
+                        <section id="searchResult"> </section>
+                        <br>
+                        <aside>
+                            <div id="map"></div>
+                        </aside>
+                    </main>
+                    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+                    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+                    crossorigin=""></script>
+                    <script type="module" src="./js/navBar.js"></script>
+                    <script type="module" src="./js/searchPage.js"></script>
+                </body>
+            </html>avbar-default bootsnav  navbar-sticky navbar-scrollspy"  data-minus-value-desktop="70" data-minus-value-mobile="55" data-speed="1000">
 
             <div class="container">
 

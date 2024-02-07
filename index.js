@@ -1,25 +1,35 @@
-// import express and database from better - sqlite3
 const express = require('express');
-const Database = require('better-sqlite3');
-const app = express();
 const path = require('path');
+const express_session = require('express-session');
 
-// set up body-parser
-const bodyParser = require('body-parser');
-app.use(bodyParser.json()); // for parsing application/json
-//configuration settings
-const PORT = 3000;
-const DB = 'explorelocal.db' // path to sqlite db file
+const app = express();
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+app.use(express.static(path.join(__dirname,'public')));
+app.use(express_session({
+    secret: "xyzEa1xyz$#123",
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        expires: new Date(253002300000000)
+    }
+}));
 
-// DB connection
-const db = new Database(DB);
-console.log (`Connected to the ${DB} database`);
+const businessRoutes = require('./routes/businessRoutes');
+const userRoutes = require('./routes/userRoutes');
 
-// static files from public directory
-app.use(express.static('public'));
+app.use('/business',businessRoutes);
+app.use('/user',userRoutes);
 
+app.get('/',(req,res,next)=>{
+    res.sendFile(path.join(__dirname,'public','searchPage.html'));
+});
 
-//routess / end points
+app.listen(5000,()=>{
+    console.log(`App is listening on port : 5000`);
+});
+
+/*
 
 // ----- PART 'A' START-------
 
@@ -110,14 +120,4 @@ app.delete('/localbusiness/:id', (req, res) => {
         res.status(500).json({ error: error.message });
     }
 });
-
-// ----- PART 'A' END -------
-
-// ----- PART 'B' START -----
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'home.html'));
-});
-
-// ----- PART 'B' END ------
-
-app.listen(PORT, () => console.log(`Server is running at http://localhost:${PORT}/`));
+*/
