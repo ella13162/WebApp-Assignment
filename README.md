@@ -10,11 +10,8 @@ ExploreLocal Web Application
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
-- [Project Structure](#project-structure)
 - [Features](#features)
 - [Database](#database)
-- [Contributing](#contributing)
-- [License](#license)
 - [Git SCM Guide](#git-scm-guide)
 
 ## Project Description
@@ -75,20 +72,14 @@ Lookup Local Businesses: To view businesses in a specific region, use `/business
 Add a New Business: Send a `POST` request to `/businesses` with the business details (name, type, country, region, longitude, latitude, description) in JSON format.
 
 Recommend a Business: To increment recommendations for a business, send a `PUT` request to `/businesses/recommend/:id`, replacing :id with the business's ID.
-## Project Structure
-
-??????????????????
 
 ## Features
 
 - Look up activities in a specified region.
 - Add new experiences to the database.
-- Book an experience with the ability to specify the number of attendees.
 - Interactive map display of experiences using Leaflet and OpenStreetMap.
 - User authentication system for login and session management.
-- Capability to handle bookings only for authenticated users.
-
-
+- Capability to add recommendation only for authenticated users.
 
 ## Testing
 
@@ -148,10 +139,6 @@ GET http://localhost:3000/localbusiness/krakow
 - [Express](https://expressjs.com/) - The web application framework.
 - [SQLite](https://www.sqlite.org/) - The database engine.
 
-## Contributing
-
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
-
 ## Versioning
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/ella13162/WebApp-Assignment.git).
@@ -159,16 +146,6 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 ## Authors
 
 - **Elzbieta Strzyz** - *Explore Local Web Application* - [ella13162](https://github.com/ella13162/WebApp-Assignment.git)
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
 
 ## Git SCM Guide
 
